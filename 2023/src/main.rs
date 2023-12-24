@@ -29,7 +29,7 @@ fn run() {
     // Add all the days (suppress them with #[cfg(test)))
     //#[cfg(test)]
     solutions.add(Box::new(days::day01::Day01{}));
-    #[cfg(test)]
+    //#[cfg(test)]
     solutions.add(Box::new(days::day02::Day02{}));
     // Run all the soulutions
     solutions.run();
