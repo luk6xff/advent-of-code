@@ -8,9 +8,8 @@ INSTALL_DEPENDENCIES_CMD="sudo apt-get update -qq && \
                           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 BUILD_CMD="cd src && cargo build"
-CLEAN_BUILD_CMD="rm -rf build && cmake -S . -B build -DCOMPILER_CHOICE=GCC -DCMAKE_EXPORT_COMPILE_COMMANDS=ON && \
-                 ${BUILD_CMD}"
-UNITTESTS_CMD="cd src && cargo test"
+CLEAN_BUILD_CMD="rm -rf target && ${BUILD_CMD}"
+UNITTESTS_CMD="cargo test"
 
 # Parse command-line options
 while getopts ":wiuUaAh" opt; do
@@ -30,7 +29,7 @@ while getopts ":wiuUaAh" opt; do
       COMMAND="cd ${PROJECT_WSL_PATH} && ${CLEAN_BUILD_CMD} && ${UNITTESTS_CMD}"
       ;;
     U)
-      # Just Run unit tests withiut cleaning
+      # Just Run unit tests without cleaning
       COMMAND="cd ${PROJECT_WSL_PATH} && ${BUILD_CMD} && ${UNITTESTS_CMD}"
       ;;
     a)
