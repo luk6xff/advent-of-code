@@ -8,7 +8,7 @@ INSTALL_DEPENDENCIES_CMD="sudo apt-get update -qq && \
                           curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh"
 
 BUILD_CMD="cd src && cargo build"
-CLEAN_BUILD_CMD="rm -rf target && ${BUILD_CMD}"
+CLEAN_BUILD_CMD="cargo clean && ${BUILD_CMD}"
 UNITTESTS_CMD="cargo test"
 
 # Parse command-line options

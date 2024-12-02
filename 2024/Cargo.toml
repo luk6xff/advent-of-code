@@ -4,5 +4,8 @@ version = "1.0.0"
 authors = ["luk6xff <lukasz.uszko@gmail.com>"]
 edition = "2021"
 
+[dependencies]
+reqwest = { version = "0.11", features = ["blocking", "cookies"] }
+
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

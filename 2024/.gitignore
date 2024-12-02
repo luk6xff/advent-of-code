@@ -14,5 +14,4 @@ target/
 *.pdb
 
 # Others
-Advent-Of-Code-2021
-AdventOfCode2021
+*.aoc_session_token
