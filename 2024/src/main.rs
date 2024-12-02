@@ -27,13 +27,14 @@ fn main() {
 fn run() {
     let mut solutions = DaySolutions{days:Vec::new()};
     solutions.add(Box::new(days::day1::Day1{}));
+    #solutions.add(Box::new(days::day2::Day2{}));
     // Run all the solutions
     solutions.run();
 }
 
 
 
-// # new way of working
+// # New way of working
 // mod days;
 // mod utils;
 
