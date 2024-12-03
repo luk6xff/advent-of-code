@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 use crate::days::day::Day;
 
 pub struct Day23;

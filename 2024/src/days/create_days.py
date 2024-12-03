@@ -12,9 +12,7 @@ DAYS_DIR = os.path.dirname(__file__)
 os.makedirs(DAYS_DIR, exist_ok=True)
 
 # Template for each day module
-TEMPLATE = '''use std::collections::HashMap;
-
-use crate::days::day::Day;
+TEMPLATE = '''use crate::days::day::Day;
 
 pub struct Day{day_number};
 

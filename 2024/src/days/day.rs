@@ -1,5 +1,5 @@
 use reqwest::blocking::Client;
-use reqwest::header::{COOKIE, USER_AGENT};
+use reqwest::header::COOKIE;
 use std::fs;
 use std::fs::File;
 use std::io::{self, Read, Write};
