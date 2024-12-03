@@ -4,6 +4,6 @@ pub mod day;
 // Include the generated modules and registration function
 pub mod day1;
 pub mod day2;
-
+pub mod day3;
 // Include the generated modules and registration function
 //#include!(concat!(env!("OUT_DIR"), "/generated_days.rs"));

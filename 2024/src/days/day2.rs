@@ -25,7 +25,6 @@ impl Day for Day2 {
 
     fn part_2(&self) -> String {
         let input = self.load_input();
-        let mut solution: usize = 0;
         let mut reports = Vec::new();
         for line in input.lines() {
             let int_line: Result<Vec<i32>, _> = line
@@ -43,7 +42,7 @@ impl Day for Day2 {
             }
         }
 
-        solution = count_reports(&reports, true);
+        let solution: usize = count_reports(&reports, true);
         // println!(
         //     "Part 2: The number of safe reports is: {}",
         //     solution
