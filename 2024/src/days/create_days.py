@@ -22,13 +22,13 @@ impl Day for Day{day_number} {{
     }}
 
     fn part_1(&self) -> String {{
-        let input = self.load_input();
+        let _input = self.load_input();
 
         "Part 1".to_string()
     }}
 
     fn part_2(&self) -> String {{
-        let input = self.load_input();
+        let _input = self.load_input();
 
         "Part 2".to_string()
     }}
