@@ -17,8 +17,9 @@ impl Day for Day4 {
 
     fn part_2(&self) -> String {
         let input = self.load_input();
-
-        "Part 2".to_string()
+        let input_formatted = input.lines().map(|s| s).collect::<Vec<&str>>();
+        let found_xmas = self.find_x_mas(&input_formatted);
+        found_xmas.to_string()
     }
 }
 
@@ -57,6 +58,44 @@ impl Day4 {
             }
         }
         found_words
+    }
+
+    fn find_x_mas(&self, grid: &[&str]) -> usize {
+        let mut found_x_mases = 0;
+        for (y, row) in grid.iter().enumerate() {
+            for (x, ch) in row.chars().enumerate() {
+                if ch == 'A' {
+                    const COMBINATIONS: [[(char, (i32, i32)); 4]; 4] = [
+                                [('M',(-1, -1)), ('S', (1, -1)), ('S', (1, 1)), ('M',(-1, 1))],
+                                [('S',(-1, -1)), ('S', (1, -1)), ('M', (1, 1)), ('M',(-1, 1))],
+                                [('S',(-1, -1)), ('M', (1, -1)), ('M', (1, 1)), ('S',(-1, 1))],
+                                [('M',(-1, -1)), ('M', (1, -1)), ('S', (1, 1)), ('S',(-1, 1))],
+                            ];
+                    for combination in COMBINATIONS.iter() {
+                        let mut found = true;
+                        for data in combination.iter() {
+                            let (dx, dy) = data.1;
+                            let x = (x as i32 + dx) as usize;
+                            let y = (y as i32 + dy) as usize;
+                            if x >= grid[0].len() || y >= grid.len() {
+                                found = false;
+                                break;
+                            }
+
+                            if grid[y].chars().nth(x).unwrap() != data.0 {
+                                found = false;
+                                break;
+                            }
+                        }
+
+                        if found {
+                            found_x_mases += 1;
+                        }
+                    }
+                }
+            }
+        }
+        found_x_mases
     }
 
     fn check_direction(grid: &[&str], word: &str, start_pos: (usize, usize), direction: &str) -> bool {
@@ -137,6 +176,49 @@ mod tests {
     #[test]
     fn test_part_2() {
         let day = Day4;
+        const GRID_SIZE: usize = 10;
+        const GRID: [&str; GRID_SIZE] = [
+            ".M.S......",
+            "..A..MSMS.",
+            ".M.S.MAA..",
+            "..A.ASMSM.",
+            ".M.S.M....",
+            "..........",
+            "S.S.S.S.S.",
+            ".A.A.A.A..",
+            "M.M.M.M.M.",
+            "..........",
+        ];
+        let found_x_mases = day.find_x_mas(&GRID);
+        assert_eq!(found_x_mases, 9);
     }
+
+    #[test]
+    fn test_part_2_1() {
+        let day = Day4;
+        const GRID_SIZE: usize = 3;
+        const GRID: [&str; GRID_SIZE] = [
+            "M.S",
+            ".A.",
+            "M.S",
+        ];
+        let found_x_mases = day.find_x_mas(&GRID);
+        assert_eq!(found_x_mases, 1);
+    }
+
+    #[test]
+    fn test_part_2_2() {
+        let day = Day4;
+        const GRID_SIZE: usize = 3;
+        const GRID: [&str; GRID_SIZE] = [
+            "M.S.M.",
+            ".A.A..",
+            "M.S.M.",
+        ];
+        let found_x_mases = day.find_x_mas(&GRID);
+        assert_eq!(found_x_mases, 2);
+    }
+
+
 }
 
