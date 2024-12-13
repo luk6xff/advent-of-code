@@ -125,6 +125,7 @@ impl Day4 {
         true
     }
 
+    #[allow(dead_code)]
     fn print_grid(&self, grid: &[&str]) {
         println!("Grid:");
         for row in grid {
@@ -133,6 +134,7 @@ impl Day4 {
         println!("");
     }
 
+    #[allow(dead_code)]
     fn print_found_words(&self, words: &[FoundWord]) {
         if words.is_empty() {
             println!("No occurrences of '{}' found", Self::WORD);

@@ -26,10 +26,13 @@ fn main() {
 
 fn run() {
     let mut solutions = DaySolutions{days:Vec::new()};
-    // solutions.add(Box::new(days::day1::Day1{}));
-    // solutions.add(Box::new(days::day2::Day2{}));
-    // solutions.add(Box::new(days::day3::Day3{}));
+    /*
+    solutions.add(Box::new(days::day1::Day1{}));
+    solutions.add(Box::new(days::day2::Day2{}));
+    solutions.add(Box::new(days::day3::Day3{}));
     solutions.add(Box::new(days::day4::Day4{}));
+     */
+    solutions.add(Box::new(days::day5::Day5{}));
     // Run all the solutions
     solutions.run();
 }

@@ -7,6 +7,7 @@ edition = "2021"
 [dependencies]
 reqwest = { version = "0.11", features = ["blocking", "cookies"] }
 regex = { version = "1.11.1" }
+indoc = "2"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
